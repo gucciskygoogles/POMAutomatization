@@ -1,12 +1,8 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
-
+from pages.locators import MainPageLocators
 
 class MainPage(BasePage):
 
-    def to_login_page(self):
-        login_btn = self.browser.find_element(By.XPATH, '/html/body/header/div/ol[2]/li[2]/a[1]')
-        login_btn.click()
-
-    def shoul_be_login_btn(self):
-        self.browser.find_element(By.XPATH, '/html/body/header/div/ol[2]/li[2]/a[1]')
+    def should_be_login_btn(self):
+        assert self.is_element_present(*MainPageLocators.LOGIN_BTN), 'No login button'
