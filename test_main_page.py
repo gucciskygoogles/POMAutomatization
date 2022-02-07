@@ -7,4 +7,4 @@ def test_login_btn_is_here(browser):
     page = MainPage(browser, link)
     page.open()
     page.should_be_login_btn()
-
+    time.sleep(3)
