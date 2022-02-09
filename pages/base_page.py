@@ -15,3 +15,7 @@ class BasePage:
         except NoSuchElementException:
             return False
         return True
+
+    def alert_remove(self):
+        alert = self.browser.switch_to_alert
+        alert.accept()

@@ -1,3 +1,5 @@
+import time
+
 from pages.base_page import BasePage
 from pages.locators import MainPageLocators
 from pages.login_page import LoginPage
@@ -20,4 +22,9 @@ class MainPage(BasePage):
     def click_on_logo(self):
         logo = self.browser.find_element(*MainPageLocators.STACKOVERFLOW_LOGO)
         logo.click()
+        time.sleep(3)
+        try:
+            self.alert_remove()
+        except:
+            print('no alert')
         assert self.browser.current_url == 'https://stackoverflow.com/', "This url doesn't below to main page"
