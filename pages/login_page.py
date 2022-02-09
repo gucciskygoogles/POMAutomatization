@@ -17,3 +17,5 @@ class LoginPage(BasePage):
     def should_be_submit_button(self):
         assert self.is_element_present(*LoginPageLocators.SUBMIT_LOGIN_BTN), 'No button'
 
+    def should_be_google_login_button(self):
+        assert self.is_element_present(*LoginPageLocators.GOOGLE_LOGIN_BTN), 'No google login button'
