@@ -3,21 +3,18 @@ import time
 
 class TestWorkOnMainPage():
 
-    def test_login_btn_is_here(self, browser):
-        link = 'https://stackoverflow.com/'
+    def test_login_btn_is_here(self, browser, link):
         page = MainPage(browser, link)
         page.open()
         page.should_be_login_btn()
         time.sleep(3)
 
-    def test_logo_link_is_going_to_main_page(self, browser):
-        link = 'https://stackoverflow.com/'
+    def test_logo_link_is_going_to_main_page(self, browser, link):
         page = MainPage(browser, link)
         page.open()
         page.click_on_logo()
 
-    def test_open_side_bar(self, browser):
-        link = 'https://stackoverflow.com/'
+    def test_open_side_bar(self, browser, link):
         page = MainPage(browser, link)
         page.open()
         page.open_side_bar()
@@ -25,8 +22,7 @@ class TestWorkOnMainPage():
 
 class TestFromMainPAgeToOther:
 
-    def test_go_to_login_page(self, browser):
-        link = 'https://stackoverflow.com/'
+    def test_go_to_login_page(self, browser, link):
         page = MainPage(browser, link)
         page.open()
         login_page = page.go_to_login_page()

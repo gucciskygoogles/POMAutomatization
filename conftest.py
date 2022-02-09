@@ -25,3 +25,8 @@ def browser(request):
         raise pytest.UsageError('--browser_name доллжен быть Firefox или Chrome')
     yield browser
     browser.quit()
+
+@pytest.fixture()
+def link():
+    link = 'https://stackoverflow.com/'
+    return link
