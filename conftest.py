@@ -27,6 +27,23 @@ def browser(request):
     browser.quit()
 
 @pytest.fixture()
+def browser(request):
+    browser_name = request.config.getoption('browser_name')
+    browser = None
+    if browser_name == 'chrome' or browser_name == 'Chrome':
+        options = Options()
+        options.add_argument("--window-size=1920,1080")
+        browser = webdriver.Chrome(options=options)
+    elif browser_name == 'firefox' or browser_name == 'Firefox':
+        fp = webdriver.FirefoxProfile()
+        fp.set_preference(1920, 1080)
+        browser = webdriver.Firefox(firefox_profile=fp)
+    else:
+        raise pytest.UsageError('--browser_name доллжен быть Firefox или Chrome')
+    yield browser
+    browser.quit()
+
+@pytest.fixture()
 def link():
     link = 'https://stackoverflow.com/'
     return link
