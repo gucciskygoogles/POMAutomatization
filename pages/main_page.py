@@ -4,6 +4,7 @@ from pages.base_page import BasePage
 from pages.locators import MainPageLocators
 from pages.login_page import LoginPage
 from pages.questions_page import QuestionsPage
+from pages.about_page import AboutPage
 
 class MainPage(BasePage):
 
@@ -36,3 +37,8 @@ class MainPage(BasePage):
         question_chapter = self.browser.find_element(*MainPageLocators.SIDE_BAR_QUESTIONS)
         question_chapter.click()
         return QuestionsPage(browser=self.browser, url=self.browser.current_url)
+
+    def going_to_about_page(self):
+        about_page = self.browser.find_element(*MainPageLocators.ABOUT_BTN)
+        about_page.click()
+        return AboutPage(browser=self.browser, url=self.browser.current_url)

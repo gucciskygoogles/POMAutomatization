@@ -41,3 +41,9 @@ class TestFromMainPAgeToOther:
         page.open()
         login_page = page.go_to_login_page()
         login_page.should_be_login_page()
+
+    def test_going_to_about_page(self, browser, link):
+        page = MainPage(browser, link)
+        page.open()
+        about_page = page.going_to_about_page()
+        about_page.should_be_about_page_url()
